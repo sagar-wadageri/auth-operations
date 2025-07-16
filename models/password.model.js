@@ -16,7 +16,7 @@ const Password = dbConnection.define('password_master', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'user', 
+            model: 'users', 
             key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -41,6 +41,6 @@ const Password = dbConnection.define('password_master', {
     updatedAt: 'updated_at',
 });
 
-Password.sync({ alter: false }); // Set to true in dev if you want Sequelize to adjust columns
+Password.sync({ alter: true }); // Set to true in dev if you want Sequelize to adjust columns
 
 export default Password;

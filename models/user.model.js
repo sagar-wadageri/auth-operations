@@ -28,6 +28,6 @@ const User = dbConnection.define('user', {
     }
 );
 
-User.sync({alter:false});
+User.sync({alter:true});
 
 export default User;

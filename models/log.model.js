@@ -11,7 +11,7 @@ const Log = dbConnection.define('log_table', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'user',
+            model: 'users',
             key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -27,6 +27,6 @@ const Log = dbConnection.define('log_table', {
     updatedAt: 'updated_at',
 });
 
-Log.sync({ alter: false }); // alter: true in dev mode if needed
+Log.sync({ alter: true }); // alter: true in dev mode if needed
 
 export default Log;

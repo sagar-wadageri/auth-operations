@@ -19,7 +19,7 @@ const Otp = dbConnection.define('otp', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'user', 
+            model: 'users', 
             key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -35,6 +35,6 @@ const Otp = dbConnection.define('otp', {
     updatedAt: 'updated_at',
 });
 
-Otp.sync({ alter: false }); // Use `alter: true` during development if you want Sequelize to auto update
+Otp.sync({ alter: true }); // Use `alter: true` during development if you want Sequelize to auto update
 
 export default Otp;
