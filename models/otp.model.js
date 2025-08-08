@@ -29,6 +29,10 @@ const Otp = dbConnection.define('otp', {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
     },
+    is_deleted:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    }
 }, {
     timestamps: true,       // Automatically adds createdAt and updatedAt
     createdAt: 'created_at',

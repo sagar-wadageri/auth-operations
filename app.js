@@ -2,8 +2,10 @@ import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 import xss from 'xss';
-import authRouters from './routes/auth.route.js'
+import authRouters from './routes/auth.route.js';
+import logRouters from './routes/log.route.js';
 
 const app = express();
 dotenv.config();
@@ -18,12 +20,15 @@ app.use(cors({
     methods:['POST','GET','DELETE','PUT']
 }))
 
+app.use(cookieParser());
+
 app.use(helmet());
 
 //app.use(xss());
 
 app.disable('x-powered-by');
 
-app.use('/api',authRouters);
+app.use('/api/user',authRouters);
+app.use('/api/logs', logRouters);
 
 export default app;

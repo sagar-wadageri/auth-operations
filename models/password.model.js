@@ -16,7 +16,7 @@ const Password = dbConnection.define('password_master', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'users', 
+            model: 'users',
             key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -26,11 +26,10 @@ const Password = dbConnection.define('password_master', {
         type: DataTypes.DATE,
         allowNull: false,
         defaultValue: () => {
-            const monthsAhead = moment().add(6,"months");
-            const now = monthsAhead.format('YYYY-MM-DD HH:MM:SS');
-            return now;
+            return moment().add(6, 'months').toDate(); // Return a Date object, not a string
         }
-    },
+    }
+    ,
     is_expired: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
